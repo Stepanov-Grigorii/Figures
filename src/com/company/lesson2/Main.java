@@ -2,7 +2,6 @@ package com.company.lesson2;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.stream.IntStream;
 
 public class Main {
     public static void main(String[] args) {
@@ -69,7 +68,7 @@ public class Main {
     public static void branch(ArrayList<ClosedFigure> closedFigures, int i, Info info, Scanner scanner){
         int flag = 1;
         System.out.println("closedFigure = " + closedFigures.get(i));
-        if(closedFigures.get(i) instanceof CorrectFigure) {
+        if(closedFigures.get(i) instanceof CircInsFigure) {
             info.PrintCorrectDetails();
             while (flag == 1) {
                 switch (scanner.nextLine()) {
@@ -82,11 +81,11 @@ public class Main {
                         info.PrintCorrectDetails();
                         break;
                     case "i":
-                        System.out.println(((CorrectFigure) closedFigures.get(i)).getRadiusOfInscribedCircle());
+                        System.out.println(((CircInsFigure) closedFigures.get(i)).getRadiusOfInscribedCircle());
                         info.PrintCorrectDetails();
                         break;
                     case "c":
-                        System.out.println(((CorrectFigure) closedFigures.get(i)).getRadiusOfCircumscribedCircle());
+                        System.out.println(((CircInsFigure) closedFigures.get(i)).getRadiusOfCircumscribedCircle());
                         info.PrintCorrectDetails();
                         break;
                     case "q":

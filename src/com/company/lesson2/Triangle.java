@@ -1,7 +1,7 @@
 package com.company.lesson2;
 
 
-public class Triangle implements ClosedFigure {
+public class Triangle implements CircInsFigure {
     private double a;
     private double b;
     private double c;
@@ -10,6 +10,16 @@ public class Triangle implements ClosedFigure {
         this.a = a;
         this.b = b;
         this.c = c;
+    }
+
+    @Override
+    public double getRadiusOfInscribedCircle() {
+        return Math.sqrt(((getPerimeter()/2 - a) * (getPerimeter()/2 - b) * (getPerimeter()/2 - c)) / getPerimeter() / 2);
+    }
+
+    @Override
+    public double getRadiusOfCircumscribedCircle() {
+        return a * b * c / (4 * Math.sqrt(getPerimeter() / 2 * (getPerimeter() / 2 - a) * (getPerimeter() / 2 - b) * (getPerimeter() / 2 - c)));
     }
 
     @Override

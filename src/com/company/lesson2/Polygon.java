@@ -1,12 +1,22 @@
 package com.company.lesson2;
 
-public class Polygon implements ClosedFigure{
+public class Polygon implements CorrectFigure{
     private int numberOfSides;
-    private int length;
+    private double length;
 
     public Polygon(int numberOfSides, int length) {
         this.numberOfSides = numberOfSides;
         this.length = length;
+    }
+
+    @Override
+    public double getRadiusOfInscribedCircle() {
+        return length / 2 / Math.tan(Math.PI / numberOfSides);
+    }
+
+    @Override
+    public double getRadiusOfCircumscribedCircle() {
+        return length / 2 / Math.sin(Math.PI / numberOfSides);
     }
 
     @Override
@@ -35,7 +45,7 @@ public class Polygon implements ClosedFigure{
         this.numberOfSides = numberOfSides;
     }
 
-    public int getLength() {
+    public double getLength() {
         return length;
     }
 
