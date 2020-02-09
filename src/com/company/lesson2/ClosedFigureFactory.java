@@ -29,15 +29,14 @@ public class ClosedFigureFactory {
         side.add(scanner.nextDouble());
         side.add(scanner.nextDouble());
         side.add(scanner.nextDouble());
-        Collections.sort(side);
-        Collections.reverse(side);
+        Collections.sort(side, Collections.reverseOrder());
         /*double a = scanner.nextDouble();
         double b = scanner.nextDouble();
         double c = scanner.nextDouble();*/
 
         if(side.get(0) >= side.get(1) + side.get(2))
             return null;
-        System.out.println(Math.sqrt(Math.pow(side.get(1), 2) + Math.pow(side.get(2), 2)));
+
         if(side.get(0) == Math.sqrt(Math.pow(side.get(1), 2) + Math.pow(side.get(2), 2)))
             return new RightTriangle(side.get(0), side.get(1), side.get(2));
 
