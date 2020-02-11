@@ -33,4 +33,7 @@ public class Info {
                            "Press c for Radius Of Circumscribed Circle\n" +
                            "Press q to return\n");
     }
+    public void PrintBye(){
+        System.out.println("Have a nice day!");
+    }
 }

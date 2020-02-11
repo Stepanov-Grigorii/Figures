@@ -45,7 +45,7 @@ public class Main {
                     break;
                 case "q":
                     flag = 0;
-                    System.out.println("Have a nice day!");
+                    info.PrintBye();
                     break;
             }
         }
