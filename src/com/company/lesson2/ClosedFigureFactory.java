@@ -7,7 +7,6 @@ public class ClosedFigureFactory {
 
     public static Circle createCircle() throws FiguresException {
         int radius = (int) setLength();
-
         Circle circle = new Circle();
         circle.setRadius(radius);
 
@@ -41,7 +40,7 @@ public class ClosedFigureFactory {
         return new Polygon(numberOfSides, length);
     }
 
-    public static double getLength() throws FiguresException {
+    public static double setLength() throws FiguresException {
         double length = scanner.nextDouble();
         if(length > 0){
             return length;
@@ -50,21 +49,7 @@ public class ClosedFigureFactory {
         }
     }
 
-    public static double setLength() {
-        double length = 0;
-        while(length == 0){
-            try {
-                length = getLength();
-            }catch (FiguresException e){
-                e.printStackTrace();
-                e.getMessage();
-                System.out.println("Try again.");
-            }
-        }
-        return length;
-    }
-
-    public static int getNumberOfSides() throws FiguresException {
+    public static int setNumberOfSides() throws FiguresException {
         int numberOfSides = scanner.nextInt();
         if(numberOfSides > 2){
             return numberOfSides;
@@ -73,21 +58,8 @@ public class ClosedFigureFactory {
         }
     }
 
-    public static int setNumberOfSides(){
-        int numberOfSides = 0;
-        while(numberOfSides == 0){
-            try{
-                numberOfSides = getNumberOfSides();
-            }catch (FiguresException e){
-                e.printStackTrace();
-                e.getMessage();
-                System.out.println("Try again.");
-            }
-        }
-        return numberOfSides;
-    }
-
-    public static void sideControl(List<Double> side) throws FiguresException {
+    public static List<Double> setSides() throws FiguresException {
+        List<Double> side = new ArrayList<>();
         scanner.useLocale(Locale.US);
         side.add(setLength());
         side.add(setLength());
@@ -98,20 +70,6 @@ public class ClosedFigureFactory {
             side.clear();
             throw new FiguresException("One side is larger than the sum of the other two.");
         }
-    }
-
-    public static List<Double> setSides(){
-        List<Double> side = new ArrayList<>();
-
-        while(side.isEmpty()){
-            try {
-                sideControl(side);
-            }catch (FiguresException e){
-                e.printStackTrace();
-                e.getMessage();
-                System.out.println("Try again.");
-            }
-        }
-        return  side;
+        return side;
     }
 }

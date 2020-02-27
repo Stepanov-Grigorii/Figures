@@ -15,25 +15,53 @@ public class Main {
             switch (scanner.nextLine()) {
                 case "r":
                     info.PrintMessage();
-                    closedFigures.add(ClosedFigureFactory.createRectangle());
+                    try {
+                        closedFigures.add(ClosedFigureFactory.createRectangle());
+                    }catch (FiguresException e){
+                        e.printStackTrace();
+                        e.getMessage();
+                        info.PrintInfo();
+                        break;
+                    }
                     branch(closedFigures, i, info, scanner);
                     ++i;
                     break;
                 case "c":
                     info.PrintMessage();
-                    closedFigures.add(ClosedFigureFactory.createCircle());
+                    try {
+                        closedFigures.add(ClosedFigureFactory.createCircle());
+                    }catch (FiguresException e){
+                        e.printStackTrace();
+                        e.getMessage();
+                        info.PrintInfo();
+                        break;
+                    }
                     branch(closedFigures, i, info, scanner);
                     ++i;
                     break;
                 case "t":
                     info.PrintMessage();
-                    closedFigures.add(ClosedFigureFactory.createTriangle());
+                    try {
+                        closedFigures.add(ClosedFigureFactory.createTriangle());
+                    }catch (FiguresException e){
+                        e.printStackTrace();
+                        e.getMessage();
+                        info.PrintInfo();
+                        break;
+                    }
                     branch(closedFigures, i, info, scanner);
                     ++i;
                     break;
                 case "p":
                     info.PrintMessage();
-                    closedFigures.add(ClosedFigureFactory.createPolygon());
+                    try {
+                        closedFigures.add(ClosedFigureFactory.createPolygon());
+                    }catch (FiguresException e){
+                        e.printStackTrace();
+                        e.getMessage();
+                        info.PrintInfo();
+                        break;
+                    }
                     branch(closedFigures, i, info, scanner);
                     ++i;
                     break;
