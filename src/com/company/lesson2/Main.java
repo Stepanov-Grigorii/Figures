@@ -5,56 +5,56 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws FiguresException {
-        Info info = new Info();
-        int flag = 1;
+        boolean flag = true;
         Scanner scanner = new Scanner(System.in);
         ArrayList<ClosedFigure> closedFigures = new ArrayList<>();
 
-        while(flag == 1) {
+        Info.PrintInfo();
+        while(flag) {
             switch (scanner.nextLine()) {
                 case "r":
-                    info.PrintMessage();
+                    Info.PrintMessage();
                     try {
                         closedFigures.add(ClosedFigureFactory.createRectangle());
-                        branch(closedFigures, info, scanner);
+                        branch(closedFigures, scanner);
                     }catch (FiguresException e){
                         System.out.println(e.getMessage());
-                        info.PrintInfo();
+                        Info.PrintInfo();
                     }
                     break;
                 case "c":
-                    info.PrintMessage();
+                    Info.PrintMessage();
                     try {
                         closedFigures.add(ClosedFigureFactory.createCircle());
-                        branch(closedFigures, info, scanner);
+                        branch(closedFigures, scanner);
                     }catch (FiguresException e){
                         System.out.println(e.getMessage());
-                        info.PrintInfo();
+                        Info.PrintInfo();
                     }
                     break;
                 case "t":
-                    info.PrintMessage();
+                    Info.PrintMessage();
                     try {
                         closedFigures.add(ClosedFigureFactory.createTriangle());
-                        branch(closedFigures, info, scanner);
+                        branch(closedFigures, scanner);
                     }catch (FiguresException e){
                         System.out.println(e.getMessage());
-                        info.PrintInfo();
+                        Info.PrintInfo();
                     }
                     break;
                 case "p":
-                    info.PrintMessage();
+                    Info.PrintMessage();
                     try {
                         closedFigures.add(ClosedFigureFactory.createPolygon());
-                        branch(closedFigures, info, scanner);
+                        branch(closedFigures, scanner);
                     }catch (FiguresException e){
                         System.out.println(e.getMessage());
-                        info.PrintInfo();
+                        Info.PrintInfo();
                     }
                     break;
                 case "q":
-                    flag = 0;
-                    info.PrintBye();
+                    flag = false;
+                    Info.PrintBye();
                     break;
             }
         }
@@ -74,50 +74,50 @@ public class Main {
             }
         }*/
     }
-    public static void branch(ArrayList<ClosedFigure> closedFigures, Info info, Scanner scanner){
-        int flag = 1;
+    public static void branch(ArrayList<ClosedFigure> closedFigures, Scanner scanner){
+        boolean flag = true;
         System.out.println("closedFigure = " + closedFigures.get(closedFigures.size() - 1));
         if(closedFigures.get(closedFigures.size() - 1) instanceof CircInsFigure) {
-            info.PrintCorrectDetails();
-            while (flag == 1) {
+            Info.PrintCorrectDetails();
+            while (flag) {
                 switch (scanner.nextLine()) {
                     case "p":
                         System.out.println(closedFigures.get(closedFigures.size() - 1).getPerimeter());
-                        info.PrintCorrectDetails();
+                        Info.PrintCorrectDetails();
                         break;
                     case "a":
                         System.out.println(closedFigures.get(closedFigures.size() - 1).getArea());
-                        info.PrintCorrectDetails();
+                        Info.PrintCorrectDetails();
                         break;
                     case "i":
                         System.out.println(((CircInsFigure) closedFigures.get(closedFigures.size() - 1)).getRadiusOfInscribedCircle());
-                        info.PrintCorrectDetails();
+                        Info.PrintCorrectDetails();
                         break;
                     case "c":
                         System.out.println(((CircInsFigure) closedFigures.get(closedFigures.size() - 1)).getRadiusOfCircumscribedCircle());
-                        info.PrintCorrectDetails();
+                        Info.PrintCorrectDetails();
                         break;
                     case "q":
-                        flag = 0;
-                        info.PrintInfo();
+                        flag = false;
+                        Info.PrintInfo();
                         break;
                 }
             }
         }else{
-            info.PrintDetails();
-            while(flag == 1)
+            Info.PrintDetails();
+            while(flag)
             switch (scanner.nextLine()){
                 case "p":
                     System.out.println(closedFigures.get(closedFigures.size() - 1).getPerimeter());
-                    info.PrintDetails();
+                    Info.PrintDetails();
                     break;
                 case "a":
                     System.out.println(closedFigures.get(closedFigures.size() - 1).getArea());
-                    info.PrintDetails();
+                    Info.PrintDetails();
                     break;
                 case "q":
-                    flag = 0;
-                    info.PrintInfo();
+                    flag = false;
+                    Info.PrintInfo();
                     break;
             }
         }
