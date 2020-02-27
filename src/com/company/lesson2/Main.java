@@ -6,7 +6,6 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) throws FiguresException {
         Info info = new Info();
-        int i = 0;
         int flag = 1;
         Scanner scanner = new Scanner(System.in);
         ArrayList<ClosedFigure> closedFigures = new ArrayList<>();
@@ -17,8 +16,7 @@ public class Main {
                     info.PrintMessage();
                     try {
                         closedFigures.add(ClosedFigureFactory.createRectangle());
-                        branch(closedFigures, i, info, scanner);
-                        ++i;
+                        branch(closedFigures, info, scanner);
                     }catch (FiguresException e){
                         System.out.println(e.getMessage());
                         info.PrintInfo();
@@ -28,8 +26,7 @@ public class Main {
                     info.PrintMessage();
                     try {
                         closedFigures.add(ClosedFigureFactory.createCircle());
-                        branch(closedFigures, i, info, scanner);
-                        ++i;
+                        branch(closedFigures, info, scanner);
                     }catch (FiguresException e){
                         System.out.println(e.getMessage());
                         info.PrintInfo();
@@ -39,8 +36,7 @@ public class Main {
                     info.PrintMessage();
                     try {
                         closedFigures.add(ClosedFigureFactory.createTriangle());
-                        branch(closedFigures, i, info, scanner);
-                        ++i;
+                        branch(closedFigures, info, scanner);
                     }catch (FiguresException e){
                         System.out.println(e.getMessage());
                         info.PrintInfo();
@@ -50,8 +46,7 @@ public class Main {
                     info.PrintMessage();
                     try {
                         closedFigures.add(ClosedFigureFactory.createPolygon());
-                        branch(closedFigures, i, info, scanner);
-                        ++i;
+                        branch(closedFigures, info, scanner);
                     }catch (FiguresException e){
                         System.out.println(e.getMessage());
                         info.PrintInfo();
@@ -79,27 +74,27 @@ public class Main {
             }
         }*/
     }
-    public static void branch(ArrayList<ClosedFigure> closedFigures, int i, Info info, Scanner scanner){
+    public static void branch(ArrayList<ClosedFigure> closedFigures, Info info, Scanner scanner){
         int flag = 1;
-        System.out.println("closedFigure = " + closedFigures.get(i));
-        if(closedFigures.get(i) instanceof CircInsFigure) {
+        System.out.println("closedFigure = " + closedFigures.get(closedFigures.size() - 1));
+        if(closedFigures.get(closedFigures.size() - 1) instanceof CircInsFigure) {
             info.PrintCorrectDetails();
             while (flag == 1) {
                 switch (scanner.nextLine()) {
                     case "p":
-                        System.out.println(closedFigures.get(i).getPerimeter());
+                        System.out.println(closedFigures.get(closedFigures.size() - 1).getPerimeter());
                         info.PrintCorrectDetails();
                         break;
                     case "a":
-                        System.out.println(closedFigures.get(i).getArea());
+                        System.out.println(closedFigures.get(closedFigures.size() - 1).getArea());
                         info.PrintCorrectDetails();
                         break;
                     case "i":
-                        System.out.println(((CircInsFigure) closedFigures.get(i)).getRadiusOfInscribedCircle());
+                        System.out.println(((CircInsFigure) closedFigures.get(closedFigures.size() - 1)).getRadiusOfInscribedCircle());
                         info.PrintCorrectDetails();
                         break;
                     case "c":
-                        System.out.println(((CircInsFigure) closedFigures.get(i)).getRadiusOfCircumscribedCircle());
+                        System.out.println(((CircInsFigure) closedFigures.get(closedFigures.size() - 1)).getRadiusOfCircumscribedCircle());
                         info.PrintCorrectDetails();
                         break;
                     case "q":
@@ -113,11 +108,11 @@ public class Main {
             while(flag == 1)
             switch (scanner.nextLine()){
                 case "p":
-                    System.out.println(closedFigures.get(i).getPerimeter());
+                    System.out.println(closedFigures.get(closedFigures.size() - 1).getPerimeter());
                     info.PrintDetails();
                     break;
                 case "a":
-                    System.out.println(closedFigures.get(i).getArea());
+                    System.out.println(closedFigures.get(closedFigures.size() - 1).getArea());
                     info.PrintDetails();
                     break;
                 case "q":
