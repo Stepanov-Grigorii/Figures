@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FiguresException {
         Info info = new Info();
         int i = 0;
         int flag = 1;
@@ -28,12 +28,6 @@ public class Main {
                 case "t":
                     info.PrintMessage();
                     closedFigures.add(ClosedFigureFactory.createTriangle());
-                    if(closedFigures.get(i) == null){
-                        System.out.println("One side is larger than the sum of the other two");
-                        info.PrintInfo();
-                        closedFigures.remove(i);
-                        break;
-                    }
                     branch(closedFigures, i, info, scanner);
                     ++i;
                     break;
