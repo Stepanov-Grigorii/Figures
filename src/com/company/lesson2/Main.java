@@ -17,53 +17,45 @@ public class Main {
                     info.PrintMessage();
                     try {
                         closedFigures.add(ClosedFigureFactory.createRectangle());
+                        branch(closedFigures, i, info, scanner);
+                        ++i;
                     }catch (FiguresException e){
-                        e.printStackTrace();
-                        e.getMessage();
+                        System.out.println(e.getMessage());
                         info.PrintInfo();
-                        break;
                     }
-                    branch(closedFigures, i, info, scanner);
-                    ++i;
                     break;
                 case "c":
                     info.PrintMessage();
                     try {
                         closedFigures.add(ClosedFigureFactory.createCircle());
+                        branch(closedFigures, i, info, scanner);
+                        ++i;
                     }catch (FiguresException e){
-                        e.printStackTrace();
-                        e.getMessage();
+                        System.out.println(e.getMessage());
                         info.PrintInfo();
-                        break;
                     }
-                    branch(closedFigures, i, info, scanner);
-                    ++i;
                     break;
                 case "t":
                     info.PrintMessage();
                     try {
                         closedFigures.add(ClosedFigureFactory.createTriangle());
+                        branch(closedFigures, i, info, scanner);
+                        ++i;
                     }catch (FiguresException e){
-                        e.printStackTrace();
-                        e.getMessage();
+                        System.out.println(e.getMessage());
                         info.PrintInfo();
-                        break;
                     }
-                    branch(closedFigures, i, info, scanner);
-                    ++i;
                     break;
                 case "p":
                     info.PrintMessage();
                     try {
                         closedFigures.add(ClosedFigureFactory.createPolygon());
+                        branch(closedFigures, i, info, scanner);
+                        ++i;
                     }catch (FiguresException e){
-                        e.printStackTrace();
-                        e.getMessage();
+                        System.out.println(e.getMessage());
                         info.PrintInfo();
-                        break;
                     }
-                    branch(closedFigures, i, info, scanner);
-                    ++i;
                     break;
                 case "q":
                     flag = 0;
