@@ -7,6 +7,7 @@ public class Info {
                            "Press c for circle\n" +
                            "Press t for triangle\n" +
                            "Press p for polygon\n" +
+                           "Press pr to print\n" +
                            "Press q for exit\n");
     }
 

@@ -1,13 +1,16 @@
 package com.company.lesson2;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Scanner;
+import java.util.TreeSet;
 
 public class Main {
     public static void main(String[] args) {
         boolean flag = true;
         Scanner scanner = new Scanner(System.in);
         ArrayList<ClosedFigure> closedFigures = new ArrayList<>();
+        Comparator<ClosedFigure> closedFiguresComparator = new FigureComparator().thenComparing(new FigureAreaComparator());
 
         Info.PrintInfo();
         while(flag) {
@@ -52,27 +55,17 @@ public class Main {
                         Info.PrintInfo();
                     }
                     break;
+                case "pr":
+                    closedFigures.sort(closedFiguresComparator);
+                    System.out.println(closedFigures.toString());
+                    Info.PrintInfo();
+                    break;
                 case "q":
                     flag = false;
                     Info.PrintBye();
                     break;
             }
         }
-
-        /*closedFigures.add(ClosedFigureFactory.createCircle());
-        closedFigures.add(ClosedFigureFactory.createTriangle());
-        closedFigures.add(ClosedFigureFactory.createRectangle());
-        closedFigures.add(ClosedFigureFactory.createPolygon());
-
-        for (ClosedFigure closedFigure : closedFigures) {
-            System.out.println("closedFigure = " + closedFigure);
-            System.out.println(closedFigure.getPerimeter());
-            System.out.println(closedFigure.getArea());
-            if(closedFigure instanceof CorrectFigure){
-                System.out.println("Radius Of Circumscribed Circle " + ((CorrectFigure) closedFigure).getRadiusOfCircumscribedCircle());
-                System.out.println("Radius Of Inscribed Circle " + ((CorrectFigure) closedFigure).getRadiusOfInscribedCircle());
-            }
-        }*/
     }
     public static void branch(ArrayList<ClosedFigure> closedFigures, Scanner scanner){
         boolean flag = true;
