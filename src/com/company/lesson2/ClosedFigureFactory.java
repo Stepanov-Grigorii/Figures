@@ -27,9 +27,9 @@ public class ClosedFigureFactory {
     public static Triangle createTriangle() throws FiguresException {
         List<Double> side = setSides();
 
-        if(side.get(0) == Math.sqrt(Math.pow(side.get(1), 2) + Math.pow(side.get(2), 2)))
+        if(side.get(0) == Math.sqrt(Math.pow(side.get(1), 2) + Math.pow(side.get(2), 2))) {
             return new RightTriangle(side.get(0), side.get(1), side.get(2));
-
+        }
         return new Triangle(side.get(0), side.get(1), side.get(2));
     }
 

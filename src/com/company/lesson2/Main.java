@@ -10,7 +10,7 @@ public class Main {
         boolean flag = true;
         Scanner scanner = new Scanner(System.in);
         ArrayList<ClosedFigure> closedFigures = new ArrayList<>();
-        Comparator<ClosedFigure> closedFiguresComparator = new FigureComparator().thenComparing(new FigureAreaComparator());
+        Comparator<ClosedFigure> closedFiguresComparator = new FigureComparator();
 
         Info.PrintInfo();
         while(flag) {
