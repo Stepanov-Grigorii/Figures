@@ -1,6 +1,6 @@
 package com.company.lesson2;
 
-public class Polygon implements CorrectFigure{
+public class Polygon extends CFigure implements CorrectFigure{
     private int numberOfSides;
     private double length;
 
@@ -51,5 +51,10 @@ public class Polygon implements CorrectFigure{
 
     public void setLength(int length) {
         this.length = length;
+    }
+
+    @Override
+    public double getPriority() {
+        return getNumberOfSides();
     }
 }

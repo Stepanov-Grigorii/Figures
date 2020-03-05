@@ -1,6 +1,6 @@
 package com.company.lesson2;
 
-public class Circle implements ClosedFigure, Test {
+public class Circle extends CFigure{
     private int radius;
 
     @Override
@@ -26,5 +26,10 @@ public class Circle implements ClosedFigure, Test {
 
     public void setRadius(int radius) {
         this.radius = radius;
+    }
+
+    @Override
+    public double getPriority() {
+        return 1;
     }
 }

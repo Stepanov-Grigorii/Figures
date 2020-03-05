@@ -1,7 +1,7 @@
 package com.company.lesson2;
 
 
-public class Triangle implements CircInsFigure {
+public class Triangle extends CFigure implements CircInsFigure {
     private double a;
     private double b;
     private double c;
@@ -64,5 +64,10 @@ public class Triangle implements CircInsFigure {
 
     public void setC(double c) {
         this.c = c;
+    }
+
+    @Override
+    public double getPriority() {
+        return 3;
     }
 }

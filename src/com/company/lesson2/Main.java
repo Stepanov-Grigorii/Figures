@@ -9,8 +9,8 @@ public class Main {
     public static void main(String[] args) {
         boolean flag = true;
         Scanner scanner = new Scanner(System.in);
-        ArrayList<ClosedFigure> closedFigures = new ArrayList<>();
-        Comparator<ClosedFigure> closedFiguresComparator = new FigureComparator();
+        ArrayList<CFigure> closedFigures = new ArrayList<>();
+        Comparator<CFigure> closedFiguresComparator = new FigureComparator();
 
         Info.PrintInfo();
         while(flag) {
@@ -67,7 +67,7 @@ public class Main {
             }
         }
     }
-    public static void branch(ArrayList<ClosedFigure> closedFigures, Scanner scanner){
+    public static void branch(ArrayList<CFigure> closedFigures, Scanner scanner){
         boolean flag = true;
         System.out.println("closedFigure = " + closedFigures.get(closedFigures.size() - 1));
         if(closedFigures.get(closedFigures.size() - 1) instanceof CircInsFigure) {

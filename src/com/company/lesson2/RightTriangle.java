@@ -13,4 +13,9 @@ public class RightTriangle extends Triangle {
                 ", c=" + getC() +
                 '}';
     }
+
+    @Override
+    public double getPriority(){
+        return 3.5;
+    }
 }

@@ -1,6 +1,6 @@
 package com.company.lesson2;
 
-public class Rectangle implements ClosedFigure {
+public class Rectangle extends CFigure {
     private int width;
     private int length;
 
@@ -42,5 +42,10 @@ public class Rectangle implements ClosedFigure {
 
     public void setLength(int length) {
         this.length = length;
+    }
+
+    @Override
+    public double getPriority() {
+        return 4;
     }
 }

@@ -21,4 +21,9 @@ public class Square extends Rectangle implements CorrectFigure{
                 "length=" + getLength() +
                 '}';
     }
+
+    @Override
+    public double getPriority(){
+        return 4.5;
+    }
 }
