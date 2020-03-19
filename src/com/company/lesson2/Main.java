@@ -1,5 +1,6 @@
 package com.company.lesson2;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
@@ -59,15 +60,18 @@ public class Main {
                     Info.PrintInfo();
                     break;
                 case "ir":
-                    printRadiusIncCircle(closedFigures);
+                    printRadiusIncCircle(closedFigures.stream().filter(c -> c instanceof CircInsFigure)
+                            .collect(Collectors.toList()));
                     Info.PrintInfo();
                     break;
                 case "ta":
-                    printTriangleArea(closedFigures);
+                    printTriangleArea(closedFigures.stream().filter(c -> c instanceof Triangle)
+                            .collect(Collectors.toList()));
                     Info.PrintInfo();
                     break;
                 case "cln":
-                    printCorrectFigure(closedFigures);
+                    printCorrectFigure(closedFigures.stream().filter(c -> c instanceof CorrectFigure)
+                            .collect(Collectors.toList()));
                     Info.PrintInfo();
                     break;
                 case "q":
@@ -125,20 +129,20 @@ public class Main {
             }
         }
     }
-    public static void printRadiusIncCircle(List<? extends ClosedFigure> figures){
+    public static void printRadiusIncCircle(List<? super CircInsFigure> figures){
         System.out.println("Inscribed circles radius\n");
         figures.stream().filter(f -> f instanceof CircInsFigure)
-                .forEach(f -> System.out.println(((CircInsFigure) f).toString() + " radius = "
+                .forEach(f -> System.out.println(f.toString() + " radius = "
                         + ((CircInsFigure) f).getRadiusOfInscribedCircle()));
     }
-    public static void printTriangleArea(List<? extends ClosedFigure> figures){
+    public static void printTriangleArea(List<? super Triangle> figures){
         System.out.println("Triangles areas\n");
-        figures.stream().filter(f -> f instanceof Triangle).forEach(f -> System.out.println(((Triangle) f).toString() + " area = "
+        figures.stream().forEach(f -> System.out.println(f.toString() + " area = "
                 + ((Triangle) f).getArea()));
     }
-    public static void printCorrectFigure(List<? extends ClosedFigure> figures){
+    public static void printCorrectFigure(List<? super CorrectFigure> figures){
         System.out.println("Correct figures information\n");
-        figures.stream().filter(f -> f instanceof CorrectFigure).forEach(f -> System.out.println(((CorrectFigure) f).toString()
+        figures.stream().forEach(f -> System.out.println(f.toString()
                 + " length = " + ((CorrectFigure) f).getLength()
                 + " number of sides = " + ((CorrectFigure) f).getNumberOfSides()));
     }
