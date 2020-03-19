@@ -1,23 +1,28 @@
 package com.company.lesson2;
 
-public class Rectangle extends CFigure {
-    private int width;
-    private int length;
+public class Rectangle extends AbstractClosedFigure {
+    private Double width;
+    private Double length;
 
 
-    public Rectangle(int width, int length) {
+    public Rectangle(Double width, Double length) {
         this.width = width;
         this.length = length;
     }
 
     @Override
-    public double getArea() {
-        return width * length;
+    public Double getArea() {
+        return (double) width * length;
     }
 
     @Override
-    public double getPerimeter() {
-        return 2 * (width + length);
+    public Double getPerimeter() {
+        return 2. * (width + length);
+    }
+
+    @Override
+    public Double getPriority() {
+        return 4.0;
     }
 
     @Override
@@ -28,24 +33,19 @@ public class Rectangle extends CFigure {
                 '}';
     }
 
-    public int getWidth() {
+    public Double getWidth() {
         return width;
     }
 
-    public void setWidth(int width) {
+    public void setWidth(Double width) {
         this.width = width;
     }
 
-    public int getLength() {
+    public Double getLength() {
         return length;
     }
 
-    public void setLength(int length) {
+    public void setLength(Double length) {
         this.length = length;
-    }
-
-    @Override
-    public double getPriority() {
-        return 4;
     }
 }

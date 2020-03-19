@@ -14,11 +14,11 @@ public class ClosedFigureFactory {
     }
 
     public static Rectangle createRectangle() throws FiguresException {
-        int width = (int) setLength();
-        int length = (int) setLength();
+        Double width = setLength();
+        Double length = setLength();
 
 
-        if(width == length)
+        if(width.equals(length))
             return new Square(length);
 
         return new Rectangle(width, length);

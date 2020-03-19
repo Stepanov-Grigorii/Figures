@@ -1,16 +1,20 @@
 package com.company.lesson2;
 
-public class Polygon extends CFigure implements CorrectFigure{
+public class Polygon extends AbstractClosedFigure implements CorrectFigure{
     private int numberOfSides;
     private double length;
+    final int[] arr;
+
 
     public Polygon(int numberOfSides, int length) {
+        arr = new int[10];
         this.numberOfSides = numberOfSides;
         this.length = length;
     }
 
     @Override
     public double getRadiusOfInscribedCircle() {
+        int i = 0;
         return length / 2 / Math.tan(Math.PI / numberOfSides);
     }
 
@@ -20,13 +24,18 @@ public class Polygon extends CFigure implements CorrectFigure{
     }
 
     @Override
-    public double getArea() {
+    public Double getArea() {
         return numberOfSides * Math.pow(length, 2) / (4 * Math.tan(Math.PI / numberOfSides));
     }
 
     @Override
-    public double getPerimeter() {
+    public Double getPerimeter() {
         return numberOfSides * length;
+    }
+
+    @Override
+    public Double getPriority() {
+        return (double) getNumberOfSides();
     }
 
     @Override
@@ -45,16 +54,11 @@ public class Polygon extends CFigure implements CorrectFigure{
         this.numberOfSides = numberOfSides;
     }
 
-    public double getLength() {
+    public Double getLength() {
         return length;
     }
 
     public void setLength(int length) {
         this.length = length;
-    }
-
-    @Override
-    public double getPriority() {
-        return getNumberOfSides();
     }
 }

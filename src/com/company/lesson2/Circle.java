@@ -1,16 +1,21 @@
 package com.company.lesson2;
 
-public class Circle extends CFigure{
+public class Circle extends AbstractClosedFigure {
     private int radius;
 
     @Override
-    public double getArea() {
+    public Double getArea() {
         return Math.pow(radius, 2) * Math.PI;
     }
 
     @Override
-    public double getPerimeter() {
+    public Double getPerimeter() {
         return radius * 2 * Math.PI;
+    }
+
+    @Override
+    public Double getPriority() {
+        return 1.0;
     }
 
     @Override
@@ -26,10 +31,5 @@ public class Circle extends CFigure{
 
     public void setRadius(int radius) {
         this.radius = radius;
-    }
-
-    @Override
-    public double getPriority() {
-        return 1;
     }
 }

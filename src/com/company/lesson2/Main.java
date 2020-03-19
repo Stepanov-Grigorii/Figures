@@ -1,16 +1,14 @@
 package com.company.lesson2;
-
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.Scanner;
-import java.util.TreeSet;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
         boolean flag = true;
         Scanner scanner = new Scanner(System.in);
-        ArrayList<CFigure> closedFigures = new ArrayList<>();
-        Comparator<CFigure> closedFiguresComparator = new FigureComparator();
+        ArrayList<ClosedFigure> closedFigures = new ArrayList<>();
+        Comparator<ClosedFigure> closedFiguresComparator = new FigureComparator();
+
+        Comparator<ClosedFigure> staticComparator = Comparator.comparing(ClosedFigure::getPriority).thenComparing(ClosedFigure::getArea);
 
         Info.PrintInfo();
         while(flag) {
@@ -60,6 +58,18 @@ public class Main {
                     System.out.println(closedFigures.toString());
                     Info.PrintInfo();
                     break;
+                case "ir":
+                    printRadiusIncCircle(closedFigures);
+                    Info.PrintInfo();
+                    break;
+                case "ta":
+                    printTriangleArea(closedFigures);
+                    Info.PrintInfo();
+                    break;
+                case "cln":
+                    printCorrectFigure(closedFigures);
+                    Info.PrintInfo();
+                    break;
                 case "q":
                     flag = false;
                     Info.PrintBye();
@@ -67,7 +77,7 @@ public class Main {
             }
         }
     }
-    public static void branch(ArrayList<CFigure> closedFigures, Scanner scanner){
+    public static void branch(ArrayList<ClosedFigure> closedFigures, Scanner scanner){
         boolean flag = true;
         System.out.println("closedFigure = " + closedFigures.get(closedFigures.size() - 1));
         if(closedFigures.get(closedFigures.size() - 1) instanceof CircInsFigure) {
@@ -114,5 +124,22 @@ public class Main {
                     break;
             }
         }
+    }
+    public static void printRadiusIncCircle(List<? extends ClosedFigure> figures){
+        System.out.println("Inscribed circles radius\n");
+        figures.stream().filter(f -> f instanceof CircInsFigure)
+                .forEach(f -> System.out.println(((CircInsFigure) f).toString() + " radius = "
+                        + ((CircInsFigure) f).getRadiusOfInscribedCircle()));
+    }
+    public static void printTriangleArea(List<? extends ClosedFigure> figures){
+        System.out.println("Triangles areas\n");
+        figures.stream().filter(f -> f instanceof Triangle).forEach(f -> System.out.println(((Triangle) f).toString() + " area = "
+                + ((Triangle) f).getArea()));
+    }
+    public static void printCorrectFigure(List<? extends ClosedFigure> figures){
+        System.out.println("Correct figures information\n");
+        figures.stream().filter(f -> f instanceof CorrectFigure).forEach(f -> System.out.println(((CorrectFigure) f).toString()
+                + " length = " + ((CorrectFigure) f).getLength()
+                + " number of sides = " + ((CorrectFigure) f).getNumberOfSides()));
     }
 }

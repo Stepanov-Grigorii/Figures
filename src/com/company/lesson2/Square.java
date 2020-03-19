@@ -1,7 +1,7 @@
 package com.company.lesson2;
 
 public class Square extends Rectangle implements CorrectFigure{
-    public Square(int length) {
+    public Square(Double length) {
         super(length, length);
     }
 
@@ -16,6 +16,11 @@ public class Square extends Rectangle implements CorrectFigure{
     }
 
     @Override
+    public Double getPriority(){
+        return 4.5;
+    }
+
+    @Override
     public String toString(){
         return "Square{" +
                 "length=" + getLength() +
@@ -23,7 +28,7 @@ public class Square extends Rectangle implements CorrectFigure{
     }
 
     @Override
-    public double getPriority(){
-        return 4.5;
+    public int getNumberOfSides() {
+        return 4;
     }
 }

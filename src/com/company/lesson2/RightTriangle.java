@@ -6,16 +6,16 @@ public class RightTriangle extends Triangle {
     }
 
     @Override
+    public Double getPriority(){
+        return 3.5;
+    }
+
+    @Override
     public String toString() {
         return "RightTriangle{" +
                 "a=" + getA() +
                 ", b=" + getB() +
                 ", c=" + getC() +
                 '}';
-    }
-
-    @Override
-    public double getPriority(){
-        return 3.5;
     }
 }

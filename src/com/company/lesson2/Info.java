@@ -8,6 +8,9 @@ public class Info {
                            "Press t for triangle\n" +
                            "Press p for polygon\n" +
                            "Press pr to print\n" +
+                           "Press ir to print inscribed circles radius\n" +
+                           "Press ta to print triangles areas\n" +
+                           "Press cln to print correct figures information\n" +
                            "Press q for exit\n");
     }
 

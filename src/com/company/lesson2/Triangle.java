@@ -1,7 +1,7 @@
 package com.company.lesson2;
 
 
-public class Triangle extends CFigure implements CircInsFigure {
+public class Triangle extends AbstractClosedFigure implements CircInsFigure {
     private double a;
     private double b;
     private double c;
@@ -23,14 +23,19 @@ public class Triangle extends CFigure implements CircInsFigure {
     }
 
     @Override
-    public double getArea() {
+    public Double getArea() {
         double p = getPerimeter() / 2;
         return Math.sqrt(p * (p - a) * (p - b) * (p - c));
     }
 
     @Override
-    public double getPerimeter() {
+    public Double getPerimeter() {
         return a + b + c;
+    }
+
+    @Override
+    public Double getPriority() {
+        return 3.0;
     }
 
     @Override
@@ -64,10 +69,5 @@ public class Triangle extends CFigure implements CircInsFigure {
 
     public void setC(double c) {
         this.c = c;
-    }
-
-    @Override
-    public double getPriority() {
-        return 3;
     }
 }
