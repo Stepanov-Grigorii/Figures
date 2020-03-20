@@ -9,10 +9,9 @@ public class Main {
         ArrayList<ClosedFigure> closedFigures = new ArrayList<>();
         Comparator<ClosedFigure> closedFiguresComparator = new FigureComparator();
 
-        Comparator<ClosedFigure> staticComparator = Comparator
-                .nullsFirst(Comparator.comparing(ClosedFigure::getPriority).thenComparing(ClosedFigure::getArea));
-        Comparator<ClosedFigure> staticComparator2 = Comparator
-                .nullsFirst(Comparator.comparing(ClosedFigure::getPriority).thenComparing(ClosedFigure::getArea).reversed());
+        Comparator<ClosedFigure> parentComparator = Comparator.comparing(ClosedFigure::getPriority).thenComparing(ClosedFigure::getArea);
+        Comparator<ClosedFigure> staticComparator = Comparator.nullsFirst(parentComparator);
+        Comparator<ClosedFigure> staticComparator2 = staticComparator.reversed();
 
         closedFigures.add(null);
 
