@@ -9,7 +9,12 @@ public class Main {
         ArrayList<ClosedFigure> closedFigures = new ArrayList<>();
         Comparator<ClosedFigure> closedFiguresComparator = new FigureComparator();
 
-        Comparator<ClosedFigure> staticComparator = Comparator.comparing(ClosedFigure::getPriority).thenComparing(ClosedFigure::getArea);
+        Comparator<ClosedFigure> staticComparator = Comparator
+                .nullsFirst(Comparator.comparing(ClosedFigure::getPriority).thenComparing(ClosedFigure::getArea));
+        Comparator<ClosedFigure> staticComparator2 = Comparator
+                .nullsFirst(Comparator.comparing(ClosedFigure::getPriority).thenComparing(ClosedFigure::getArea).reversed());
+
+        closedFigures.add(null);
 
         Info.PrintInfo();
         while(flag) {
@@ -36,6 +41,7 @@ public class Main {
                     break;
                 case "t":
                     Info.PrintMessage();
+                    closedFigures.add(null);
                     try {
                         closedFigures.add(ClosedFigureFactory.createTriangle());
                         branch(closedFigures, scanner);
@@ -55,7 +61,7 @@ public class Main {
                     }
                     break;
                 case "pr":
-                    closedFigures.sort(closedFiguresComparator);
+                    closedFigures.sort(staticComparator2);
                     System.out.println(closedFigures.toString());
                     Info.PrintInfo();
                     break;
@@ -134,17 +140,17 @@ public class Main {
     }
     public static void printRadiusIncCircle(List<? extends CircInsFigure> figures){
         System.out.println("Inscribed circles radius\n");
-        figures.stream().forEach(f -> System.out.println(f.toString() + " radius = "
+        figures.forEach(f -> System.out.println(f.toString() + " radius = "
                         + f.getRadiusOfInscribedCircle()));
     }
     public static void printTriangleArea(List<? extends Triangle> figures){
         System.out.println("Triangles areas\n");
-        figures.stream().forEach(f -> System.out.println(f.toString() + " area = "
+        figures.forEach(f -> System.out.println(f.toString() + " area = "
                 + f.getArea()));
     }
     public static void printCorrectFigure(List<? extends CorrectFigure> figures){
         System.out.println("Correct figures information\n");
-        figures.stream().forEach(f -> System.out.println(f.toString()
+        figures.forEach(f -> System.out.println(f.toString()
                 + " length = " + f.getLength()
                 + " number of sides = " + f.getNumberOfSides()));
     }
